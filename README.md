@@ -6,6 +6,11 @@ Install dependencies
     composer install
     
     npm install
+
+Setup ENV file
+
+    create database, and setup ENV file for database migrations
+
     
 Application key generate
 
