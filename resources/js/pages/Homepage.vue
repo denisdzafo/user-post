@@ -44,7 +44,7 @@ import http from "../services/endPoints.js";
       }
     },
     components: {
-        
+
     },
 
     created(){
