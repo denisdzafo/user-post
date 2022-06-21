@@ -38,10 +38,7 @@ import http from "../services/endPoints.js";
           .then(response => {
               localStorage.removeItem('token')
               localStorage.removeItem('user_id')
-              this.$router.replace( { name: 'Homepage' },
-               () => {
-                  this.$router.go(0);
-               })
+              this.$router.go(0);
           })
           .catch(e => {
             console.log(e);

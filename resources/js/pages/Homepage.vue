@@ -47,7 +47,7 @@ import http from "../services/endPoints.js";
 
     },
 
-    created(){
+    mounted(){
         this.getPosts();
     },
 

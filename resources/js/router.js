@@ -41,9 +41,9 @@ const routes = [
       path: '/create-post',
       name: 'CreatePost',
       component: CreatePost,
-      meta: {
-        auth: false
-      }
+        beforeEnter: (to, from, next) => {
+            (store.state.isLoggedIn) ? next() : next('/');
+        },
     },
 
     {
@@ -61,9 +61,9 @@ const routes = [
       name: 'EditPost',
       component: EditPost,
       props: true,
-      meta: {
-        auth: false
-      }
+        beforeEnter: (to, from, next) => {
+            (store.state.isLoggedIn) ? next() : next('/');
+        },
     },
 
   ]
@@ -75,8 +75,8 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
 
-    if (to.matched.some(route => route.meta.requiresAuth) && !store.state.isLoggedIn) {      
-        next({ name: 'login' })
+    if (to.matched.some(route => route.meta.requiresAuth) && !store.state.isLoggedIn) {
+        next({ name: 'Login' })
         return
     }
 
