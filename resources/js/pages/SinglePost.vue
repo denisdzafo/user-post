@@ -4,14 +4,17 @@
      <div class="container" v-if="post != null">
         <div class="row" > 
           <h4 class="title">{{post.title}}</h4>
-                   <div>
+                   <div class="col-md-12">
                       Author: <i>{{post.user.name}}</i>
                       
                    <i class="date">{{post.date}}</i>
                    </div>
-                   <p >
+                   <div class="col-md-12">
+                    <p >
                       {{post.description}}
-                   </p>     
+                   </p> 
+                   </div>
+                       
              <button 
                   type="info"
                   class="btn btn-info col-md-2 mt-5"
