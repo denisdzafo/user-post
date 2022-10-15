@@ -9,18 +9,18 @@
       </div>
 </template>
 
-<script>    
+<script>
     export default {
     data() {
       return {
-        
+
       }
     },
     components: {
         //
     },
     mounted(){
-        
+
     }
   }
 </script>
@@ -33,6 +33,9 @@
 }
 .footer{
     padding: 60px 0;
-    background: #222  
+    background: #222;
+    position:absolute;
+    bottom:0;
+    width: 100%;
 }
 </style>

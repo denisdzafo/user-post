@@ -2,19 +2,19 @@
   <div>
   <section class="post-section">
      <div class="container">
-        <div class="row"  v-if="posts">       
-          <div class="col-md-4" v-for="(post, index) in posts" :key="index">         
-             <div class="post">        
+        <div class="row"  v-if="posts">
+          <div class="col-md-4" v-for="(post, index) in posts" :key="index">
+             <div class="post">
                    <h4 class="title">{{post.title}}</h4>
                    <div>
                       Author: <i>{{post.user.name}}</i>
-                      
+
                    <i class="date">{{post.date}}</i>
                    </div>
                     <button class="btn btn-info"  @click="singlePost(post.id)">Comments {{getCount(post.comments)}}</button>
                    <div v-if="post.user_id == userId">
                        <button class="btn btn-success mt-2"  @click="editPost(post.id)">Edit</button>
-                       <button class="btn btn-danger mt-2" v-if="getCount(post.comments) == 0"  @click="deletePost(post.id)">Delete</button>   
+                       <button class="btn btn-danger mt-2" v-if="getCount(post.comments) == 0"  @click="deletePost(post.id)">Delete</button>
                    </div>
               </div>
             </div>
@@ -25,7 +25,7 @@
                         <li class="page-item"><a class="page-link" @click="next()" aria-label="Next" >Next</a></li>
                     </ul>
                 </div>
-                         
+
           </div>
         </div>
   </section>
@@ -34,22 +34,20 @@
 
 <script>
 import http from "../services/endPoints.js";
-import Pagination from 'v-pagination-3';
-
     export default {
     data() {
       return {
         posts: null,
         userId: localStorage.getItem('user_id'),
         current: 1,
-        pageSize: null,   
+        pageSize: null,
       }
     },
     components: {
-        Pagination
+
     },
 
-    created(){
+    mounted(){
         this.getPosts();
     },
 
@@ -82,13 +80,13 @@ import Pagination from 'v-pagination-3';
               this.current--;
               this.getPosts(this.current);
             }
-              
+
         },
         next() {
           if(this.current != this.pageSize){
               this.current++;
               this.getPosts(this.current);
-            }          
+            }
         },
 
       deletePost(id) {
@@ -117,16 +115,16 @@ import Pagination from 'v-pagination-3';
 </script>
 
 <style scoped lang="scss" >
- 
+
   .post-section{
       padding-bottom: 80px;
   }
 
   .title{
       padding-top:20px;
-  }         
-  
-  .post{   
+  }
+
+  .post{
       padding: 20px;
       -webkit-box-shadow: 0px 0px 15px -1px #525252;
     }
